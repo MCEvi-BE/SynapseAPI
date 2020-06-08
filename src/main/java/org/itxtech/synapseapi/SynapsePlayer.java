@@ -67,6 +67,7 @@ public class SynapsePlayer extends Player {
     /**
      * Returns a client-friendly gamemode of the specified real gamemode
      * This function takes care of handling gamemodes known to MCPE (as of 1.1.0.3, that includes Survival, Creative and Adventure)
+     * aynen kank
      * <p>
      * TODO: remove this when Spectator Mode gets added properly to MCPE
      */
@@ -140,13 +141,14 @@ public class SynapsePlayer extends Player {
             File legacyDataFile = new File(server.getDataPath() + "players/" + this.username.toLowerCase() + ".dat");
             File dataFile = new File(server.getDataPath() + "players/" + this.uuid.toString() + ".dat");
             if (legacyDataFile.exists() && !dataFile.exists()) {
-                nbt = this.server.getOfflinePlayerData(this.username, false);
+                nbt = this.server.getOfflinePlayerData(this.username, this.getLoginChainData().getXUID(), false);
 
                 if (!legacyDataFile.delete()) {
                     server.getLogger().warning("Could not delete legacy player data for " + this.username);
                 }
             } else {
-                nbt = this.server.getOfflinePlayerData(this.uuid, true);
+                //new nukkit method
+                nbt = this.server.getOfflinePlayerData(this.uuid, this.getLoginChainData().getXUID(), true);
             }
         }
 

@@ -17,25 +17,6 @@
         <junit.platform.version>1.0.0-M4</junit.platform.version>
     </properties>
 
-    <distributionManagement>
-        <repository>
-            <id>myMavenRepo.write</id>
-            <url>${myMavenRepo.write.url}</url>
-        </repository>
-        <snapshotRepository>
-            <id>myMavenRepo.write</id>
-            <url>${myMavenRepo.write.url}</url>
-        </snapshotRepository>
-    </distributionManagement>
-
-    <repositories>
-        <repository>
-            <id>nukkitx-repo</id>
-            <name>nukkitx-snapshot</name>
-            <url>https://repo.nukkitx.com/snapshot</url>
-        </repository>
-    </repositories>
-
     <dependencies>
         <dependency>
             <groupId>cn.nukkit</groupId>
